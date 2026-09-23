@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CV portfolio Kelompok 2 — mahasiswa Sistem Basis Data dari Indonesia.">
+  <title>Kelompok 2 — Digital CV Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17231e;
+      --muted: #66736d;
+      --paper: #f6f8f3;
+      --card: #ffffff;
+      --line: #dfe6dc;
+      --mint: #dff1e3;
+      --green: #20704d;
+      --green-dark: #123e2d;
+      --lime: #b9d96c;
+      --shadow: 0 22px 60px rgba(29, 66, 43, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Manrope, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: auto; }
+    header { padding: 24px 0; background: rgba(246,248,243,.92); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.04em; }
+    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; color: white; border-radius: 11px; background: var(--green-dark); font-family: 'DM Mono', monospace; font-size: 13px; }
+    .nav-links { display: flex; gap: 26px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-links a:hover { color: var(--green); }
+    .hero { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 70px; min-height: 600px; padding: 86px 0 80px; }
+    .eyebrow { display: flex; align-items: center; gap: 9px; color: var(--green); font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 500; }
+    .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--lime); }
+    h1 { margin: 22px 0; max-width: 650px; font-size: clamp(42px, 6vw, 74px); line-height: .98; letter-spacing: -.07em; }
+    h1 em { color: var(--green); font-style: normal; }
+    .hero-copy { max-width: 530px; color: var(--muted); line-height: 1.8; font-size: 16px; }
+    .actions { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 19px; border-radius: 9px; background: var(--green-dark); color: white; font-size: 13px; font-weight: 800; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background: var(--green); }
+    .button.alt { color: var(--green-dark); background: transparent; border: 1px solid var(--line); }
+    .button.alt:hover { background: white; }
+    .terminal { position: relative; background: var(--green-dark); border-radius: 18px; padding: 20px; color: #d9f0d8; box-shadow: var(--shadow); transform: rotate(2deg); }
+    .terminal::after { content: ''; position: absolute; width: 90px; height: 90px; background: var(--lime); opacity: .65; filter: blur(35px); right: -25px; bottom: -20px; }
+    .terminal-bar { display: flex; gap: 6px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #9fc5a2; opacity: .7; }
+    pre { margin: 20px 0 0; white-space: pre-wrap; font: 13px/2 'DM Mono', monospace; }
+    .code-key { color: #c2e776; } .code-string { color: #f1c995; } .code-comment { color: #8bb098; }
+    section { padding: 92px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 34px; }
+    h2 { margin: 0; font-size: clamp(28px, 4vw, 43px); letter-spacing: -.06em; }
+    .section-intro { max-width: 420px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .profiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .profile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+    .profile:hover { transform: translateY(-7px); box-shadow: var(--shadow); }
+    .profile-top { min-height: 145px; padding: 20px; background: var(--mint); position: relative; }
+    .profile-top::after { content: '</>'; position: absolute; right: 18px; bottom: 8px; color: rgba(32,112,77,.13); font: 800 70px 'DM Mono', monospace; }
+    .avatar { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--green-dark); color: white; font-size: 19px; font-weight: 800; border: 4px solid rgba(255,255,255,.7); }
+    .profile-body { padding: 22px; }
+    h3 { margin: 0 0 5px; letter-spacing: -.04em; font-size: 19px; }
+    .role { margin: 0 0 17px; color: var(--green); font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .07em; }
+    .profile-body p { color: var(--muted); font-size: 13px; line-height: 1.7; min-height: 66px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+    .tag { padding: 6px 9px; color: var(--green); background: #eef5e9; border-radius: 5px; font-size: 11px; font-weight: 700; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+    .about-grid p { color: var(--muted); line-height: 1.9; font-size: 15px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat { padding: 22px; border: 1px solid var(--line); border-radius: 10px; background: white; }
+    .stat strong { display: block; color: var(--green); font-size: 28px; letter-spacing: -.06em; }
+    .stat span { color: var(--muted); font-size: 12px; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 45px; border-radius: 18px; background: var(--green-dark); color: white; }
+    .contact h2 { max-width: 570px; } .contact p { color: #bdd0c0; font-size: 14px; line-height: 1.7; }
+    .contact .button { color: var(--green-dark); background: var(--lime); white-space: nowrap; }
+    footer { padding: 28px 0; color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    @media (max-width: 800px) { .hero, .about-grid { grid-template-columns: 1fr; gap: 42px; } .hero { padding-top: 60px; } .terminal { max-width: 560px; transform: none; } .profiles { grid-template-columns: 1fr; } .section-head, .contact { align-items: start; flex-direction: column; } .contact { padding: 30px; } }
+    @media (max-width: 500px) { .shell { width: min(100% - 28px, 1180px); } .nav-links { gap: 12px; } .nav-links a:nth-child(2) { display: none; } .footer-inner { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header><div class="shell"><nav><a class="brand" href="#top"><span class="brand-mark">K2</span><span>Kelompok 2</span></a><div class="nav-links"><a href="#team">Tim</a><a href="#about">Tentang</a><a href="#contact">Kontak</a></div></nav></div></header>
+  <main id="top">
+    <div class="shell">
+      <section class="hero" style="border-top:0">
+        <div><div class="eyebrow">Digital CV portfolio</div><h1>Building ideas into <em>structured</em> systems.</h1><p class="hero-copy">Kami adalah tiga mahasiswa Indonesia yang berfokus pada coding, database management, dan pengembangan solusi digital yang rapi, efisien, serta mudah digunakan.</p><div class="actions"><a class="button" href="#team">Kenali tim kami <span>↗</span></a><a class="button alt" href="#contact">Mari terhubung</a></div></div>
+        <div class="terminal"><div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><pre><span class="code-comment">// our approach</span>
+<span class="code-key">const</span> team = {
+  <span class="code-key">location</span>: <span class="code-string">"Indonesia"</span>,
+  <span class="code-key">focus</span>: [<span class="code-string">"coding"</span>, <span class="code-string">"database"</span>],
+  <span class="code-key">status</span>: <span class="code-string">"always learning"</span>
+};
+
+<span class="code-comment">// clean data. clear direction.</span></pre></div>
+      </section>
+      <section id="team"><div class="section-head"><div><div class="eyebrow">The people behind it</div><h2>Meet the team.</h2></div><p class="section-intro">Kolaborasi tiga perspektif untuk membangun sistem informasi yang dapat diandalkan.</p></div><div class="profiles">
+        <article class="profile"><div class="profile-top"><div class="avatar">YA</div></div><div class="profile-body"><h3>Yana Kurnia</h3><p class="role">Database Designer</p><p>Mengubah kebutuhan bisnis menjadi struktur database yang terorganisir dan siap berkembang.</p><div class="tags"><span class="tag">SQL</span><span class="tag">ERD</span><span class="tag">MySQL</span></div></div></article>
+        <article class="profile"><div class="profile-top"><div class="avatar">AR</div></div><div class="profile-body"><h3>Ahmad Rafi</h3><p class="role">Full-stack Developer</p><p>Membangun pengalaman digital dengan kode yang bersih, responsif, dan berorientasi pada pengguna.</p><div class="tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Git</span></div></div></article>
+        <article class="profile"><div class="profile-top"><div class="avatar">NS</div></div><div class="profile-body"><h3>Nadia Salsabila</h3><p class="role">Data &amp; QA Analyst</p><p>Menjaga kualitas data dan memastikan setiap fitur bekerja sesuai tujuan melalui analisis yang teliti.</p><div class="tags"><span class="tag">Testing</span><span class="tag">Data analysis</span><span class="tag">Python</span></div></div></article>
+      </div></section>
+      <section id="about"><div class="about-grid"><div><div class="eyebrow">Our foundation</div><h2>Curious minds, reliable systems.</h2></div><div><p>Kami percaya bahwa teknologi yang baik dimulai dari fondasi yang kuat. Berbasis di Indonesia, kami terus mengembangkan kemampuan di bidang Sistem Basis Data, pemrograman, dan pemecahan masalah secara kolaboratif.</p><div class="stats"><div class="stat"><strong>03</strong><span>People in the team</span></div><div class="stat"><strong>∞</strong><span>Curiosity to learn</span></div></div></div></div></section>
+      <section id="contact"><div class="contact"><div><div class="eyebrow">Have a project?</div><h2>Let's build something meaningful.</h2><p>Terbuka untuk berdiskusi tentang proyek, kolaborasi, atau sekadar bertukar ide.</p></div><a class="button" href="mailto:hello@kelompok2.dev">Email kami ↗</a></div></section>
+    </div>
+  </main>
+  <footer><div class="shell footer-inner"><span>© 2024 Kelompok 2. Made in Indonesia.</span><span>Code · Data · Collaboration</span></div></footer>
+</body>
+</html>
